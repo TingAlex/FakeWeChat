@@ -6,17 +6,21 @@
 //  Copyright © 2018年 OurEDA. All rights reserved.
 //
 
-#import "ViewController.h"
+#import "Me.h"
 
-@interface ViewController ()
+@interface Me ()
 
 @end
 
-@implementation ViewController
+@implementation Me
 
 - (void)viewDidLoad {
     [super viewDidLoad];
     // Do any additional setup after loading the view, typically from a nib.
+    self.view.backgroundColor = [UIColor blackColor];
+
+
+    self.title = @"Me";
 }
 
 

@@ -17,6 +17,49 @@
 
 - (BOOL)application:(UIApplication *)application didFinishLaunchingWithOptions:(NSDictionary *)launchOptions {
     // Override point for customization after application launch.
+    self.window = [[UIWindow alloc] initWithFrame:[UIScreen mainScreen].bounds];
+    [self.window makeKeyAndVisible];
+
+    UITabBarController *tabBarController = [[UITabBarController alloc] init];
+    self.window.rootViewController = tabBarController;
+    UIViewController *wechat = [[Wechat alloc] init];
+    UIViewController *contacts = [[Contacts alloc] init];
+    UIViewController *find = [[Find alloc] init];
+    UIViewController *me = [[Me alloc] init];
+
+    UINavigationController *wechatNC = [[UINavigationController alloc] initWithRootViewController:wechat];
+    UINavigationController *contactsNC = [[UINavigationController alloc] initWithRootViewController:contacts];
+    UINavigationController *findNC = [[UINavigationController alloc] initWithRootViewController:find];
+    UINavigationController *meNC = [[UINavigationController alloc] initWithRootViewController:me];
+
+    [wechatNC.navigationBar setBarTintColor:[UIColor grayColor]];
+    [contactsNC.navigationBar setBarTintColor:[UIColor grayColor]];
+    [findNC.navigationBar setBarTintColor:[UIColor grayColor]];
+    [meNC.navigationBar setBarTintColor:[UIColor grayColor]];
+    [wechatNC.navigationBar setTitleTextAttributes:[NSDictionary dictionaryWithObjectsAndKeys:[UIColor whiteColor], UITextAttributeTextColor, nil]];
+    [contactsNC.navigationBar setTitleTextAttributes:[NSDictionary dictionaryWithObjectsAndKeys:[UIColor whiteColor], UITextAttributeTextColor, nil]];
+    [findNC.navigationBar setTitleTextAttributes:[NSDictionary dictionaryWithObjectsAndKeys:[UIColor whiteColor], UITextAttributeTextColor, nil]];
+    [meNC.navigationBar setTitleTextAttributes:[NSDictionary dictionaryWithObjectsAndKeys:[UIColor whiteColor], UITextAttributeTextColor, nil]];
+//    [wechatNC.tabBarItem setFinishedSelectedImage:[UIImage imageNamed:@"WechatGr.png"] withFinishedUnselectedImage:[UIImage imageNamed:@"Wechat.png"]];
+//    [findNC.tabBarItem setFinishedSelectedImage:[UIImage imageNamed:@"FindGr.png"] withFinishedUnselectedImage:[UIImage imageNamed:@"Find.png"]];
+//    [contactsNC.tabBarItem setFinishedSelectedImage:[UIImage imageNamed:@"ContactsGr.png"] withFinishedUnselectedImage:[UIImage imageNamed:@"Contacts.png"]];
+//    [meNC.tabBarItem setFinishedSelectedImage:[UIImage imageNamed:@"MeGr.png"] withFinishedUnselectedImage:[UIImage imageNamed:@"Me.png"]];
+    wechatNC.tabBarItem.image = [UIImage imageNamed:@"Wechat.png"];
+//    [wechatNC.tabBar]
+    tabBarController.tabBar.tintColor=[UIColor greenColor];
+    contactsNC.tabBarItem.image = [UIImage imageNamed:@"Contacts.png"];
+    findNC.tabBarItem.image = [UIImage imageNamed:@"Find.png"];
+    meNC.tabBarItem.image = [UIImage imageNamed:@"Me.png"];
+
+    wechatNC.tabBarItem.title = @"Wechat";
+    contactsNC.tabBarItem.title = @"Contacts";
+    findNC.tabBarItem.title = @"Find";
+    meNC.tabBarItem.title = @"Me";
+    tabBarController.viewControllers = @[wechatNC, contactsNC, findNC, meNC];
+    //to avoid lazyondemond.
+    for (UIViewController *controller in tabBarController.viewControllers) {
+        UIView *view = controller.view;
+    }
     return YES;
 }
 
@@ -63,7 +106,7 @@
                 if (error != nil) {
                     // Replace this implementation with code to handle the error appropriately.
                     // abort() causes the application to generate a crash log and terminate. You should not use this function in a shipping application, although it may be useful during development.
-                    
+
                     /*
                      Typical reasons for an error here include:
                      * The parent directory does not exist, cannot be created, or disallows writing.
@@ -78,7 +121,7 @@
             }];
         }
     }
-    
+
     return _persistentContainer;
 }
 

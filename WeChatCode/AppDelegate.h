@@ -8,6 +8,10 @@
 
 #import <UIKit/UIKit.h>
 #import <CoreData/CoreData.h>
+#import "Contacts.h"
+#import "Find.h"
+#import "Me.h"
+#import "Wechat.h"
 
 @interface AppDelegate : UIResponder <UIApplicationDelegate>
 
