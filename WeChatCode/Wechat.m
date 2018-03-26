@@ -18,7 +18,7 @@
 - (void)viewDidLoad {
     [super viewDidLoad];
     // Do any additional setup after loading the view, typically from a nib.
-    self.view.backgroundColor = [UIColor yellowColor];
+//    self.view.backgroundColor = [UIColor yellowColor];
     CGRect screen = [[UIScreen mainScreen] bounds];
     self.tableView = [[UITableView alloc] initWithFrame:CGRectMake(0, 0, screen.size.width, screen.size.height) style:UITableViewStylePlain];
     self.tableView.dataSource = self;
@@ -32,6 +32,10 @@
     self.tableView.tableHeaderView = self.searchController.searchBar;
     [self.searchController.searchBar sizeToFit];
     self.title = @"Wechat";
+    // The search bar is hidden when the view becomes visible the first time
+    self.tableView.contentOffset = CGPointMake(0, CGRectGetHeight(self.searchController.searchBar.bounds));
+    //follow is hide a piece of table and won't be shown anyway,so pass.
+//    [self.tableView setContentInset:UIEdgeInsetsMake(-30, 0, 0, 0)];
 }
 
 - (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section {

@@ -22,6 +22,7 @@
 		C4100B790BFDA45739E423D4 /* NSString+PinYin.m in Sources */ = {isa = PBXBuildFile; fileRef = C410032D16AB8EAE49776D7A /* NSString+PinYin.m */; };
 		C4100D92127D88089100C378 /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = C41001D7061B74B1C7D8C50D /* main.m */; };
 		C4100E01512ADA3B8F865CC0 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = C410013D924E2AF8621CA3ED /* LaunchScreen.storyboard */; };
+		C4100E202519AE53E702C52E /* UserselfCell.m in Sources */ = {isa = PBXBuildFile; fileRef = C410086339AF29A3302DCD6E /* UserselfCell.m */; };
 		C4100E60CCA464F689ECC90B /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = C41005400682D378D68FB085 /* AppDelegate.m */; };
 		FAA4BBBE206621A3005859EA /* WeChatCodeTests.m in Sources */ = {isa = PBXBuildFile; fileRef = FAA4BBBD206621A3005859EA /* WeChatCodeTests.m */; };
 		FAA4BBC9206621A4005859EA /* WeChatCodeUITests.m in Sources */ = {isa = PBXBuildFile; fileRef = FAA4BBC8206621A4005859EA /* WeChatCodeUITests.m */; };
@@ -52,9 +53,11 @@
 		C410032D16AB8EAE49776D7A /* NSString+PinYin.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "NSString+PinYin.m"; sourceTree = "<group>"; };
 		C41003519F92E5332BBBFA27 /* Wechat.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Wechat.m; sourceTree = "<group>"; };
 		C41005400682D378D68FB085 /* AppDelegate.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AppDelegate.m; sourceTree = "<group>"; };
+		C41006BF824742B1590DC988 /* UserselfCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = UserselfCell.h; sourceTree = "<group>"; };
 		C4100718B74E46BFFEA02BD5 /* Contacts.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Contacts.m; sourceTree = "<group>"; };
 		C4100766ACEA00F69EC2D39D /* Me.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Me.m; sourceTree = "<group>"; };
 		C4100803F2A55BBDAAC25938 /* Find.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Find.h; sourceTree = "<group>"; };
+		C410086339AF29A3302DCD6E /* UserselfCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = UserselfCell.m; sourceTree = "<group>"; };
 		C41008C3B64D79387243D750 /* WeChatCode.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = WeChatCode.xcdatamodel; sourceTree = "<group>"; };
 		C4100990624847C86F2B2B90 /* Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.info; path = Info.plist; sourceTree = "<group>"; };
 		C410099791C0B59618E935EE /* MessageCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MessageCell.m; sourceTree = "<group>"; };
@@ -131,6 +134,8 @@
 				C4100C1249E180E2C8A519EA /* ContactsCell.m */,
 				C4100CEC11DD5C542E80A7EA /* ContactsCell.h */,
 				C4100AD2C04B7C0BBE1F368D /* NSString+PinYin */,
+				C410086339AF29A3302DCD6E /* UserselfCell.m */,
+				C41006BF824742B1590DC988 /* UserselfCell.h */,
 			);
 			path = WeChatCode;
 			sourceTree = "<group>";
@@ -328,6 +333,7 @@
 				C41007940EEFA4BE4FCB757E /* MessageCell.m in Sources */,
 				C41008FED0C105D7260FBCE2 /* ContactsCell.m in Sources */,
 				C4100B790BFDA45739E423D4 /* NSString+PinYin.m in Sources */,
+				C4100E202519AE53E702C52E /* UserselfCell.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

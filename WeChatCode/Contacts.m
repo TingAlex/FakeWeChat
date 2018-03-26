@@ -73,9 +73,13 @@
 }
 
 - (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section {
-    NSDictionary *dict = self.demoArray[section];
-    NSMutableArray *array = dict[@"content"];
-    return [array count];
+    if (section == 0) {
+        return 4;
+    } else {
+        NSDictionary *dict = self.demoArray[section - 1];
+        NSMutableArray *array = dict[@"content"];
+        return [array count];
+    }
 }
 
 - (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath {
@@ -83,22 +87,51 @@
     if (cell == nil) {
         cell = [[ContactsCell alloc] initWithStyle:UITableViewCellStyleDefault reuseIdentifier:@"ContactsCell"];
     }
-//    NSInteger rowIndex=[indexPath row];
+    if (indexPath.section == 0) {
+        switch (indexPath.row) {
+            case 0:
+                cell.MessImageView.image = [UIImage imageNamed:@"NewFriends.png"];
+                cell.MessImageView.contentMode = UIViewContentModeScaleAspectFill;
+                cell.MessTitleLabel.text = @"New Friends";
+                return cell;
+                break;
+            case 1:
+                cell.MessImageView.image = [UIImage imageNamed:@"Group.png"];
+                cell.MessImageView.contentMode = UIViewContentModeScaleAspectFill;
+                cell.MessTitleLabel.text = @"Group Chats";
+                return cell;
+                break;
+            case 2:
+                cell.MessImageView.image = [UIImage imageNamed:@"Tags.png"];
+                cell.MessImageView.contentMode = UIViewContentModeScaleAspectFill;
+                cell.MessTitleLabel.text = @"Tags";
+                return cell;
+                break;
+            case 3:
+                cell.MessImageView.image = [UIImage imageNamed:@"Public.png"];
+                cell.MessImageView.contentMode = UIViewContentModeScaleAspectFill;
+                cell.MessTitleLabel.text = @"Public Media";
+                return cell;
+                break;
+        }
+    }
+    //    NSInteger rowIndex=[indexPath row];
     cell.MessImageView.image = [UIImage imageNamed:@"message.jpg"];
     cell.MessImageView.contentMode = UIViewContentModeScaleAspectFill;
-    NSDictionary *dict = self.demoArray[indexPath.section];
+    NSDictionary *dict = self.demoArray[indexPath.section - 1];
     NSMutableArray *array = dict[@"content"];
     cell.MessTitleLabel.text = [[array objectAtIndex:[indexPath row]] objectForKey:@"Name"];
     return cell;
 }
 
 - (NSInteger)numberOfSectionsInTableView:(UITableView *)tableView {
-    return [self.demoArray count];
+    return [self.demoArray count] + 1;
 }
 
 - (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath {
 
 }
+
 - (void)viewWillAppear:(BOOL)animated {
     self.sandboxDic = [[NSMutableDictionary alloc] initWithContentsOfFile:self.filePath];
     self.demoArray = [self.sandboxDic allValues];
@@ -110,17 +143,18 @@
     [super didReceiveMemoryWarning];
     // Dispose of any resources that can be recreated.
 }
+
 #pragma mark---tableView索引相关设置----
 
 //添加TableView头视图标题
 - (NSString *)tableView:(UITableView *)tableView titleForHeaderInSection:(NSInteger)section {
-//    if (section == 0) {
-//        return nil;
-//    } else {
-        NSDictionary *dict = self.demoArray[section];
+    if (section == 0) {
+        return nil;
+    } else {
+        NSDictionary *dict = self.demoArray[section - 1];
         NSString *title = dict[@"firstLetter"];
         return title;
-//    }
+    }
 }
 
 
@@ -144,8 +178,8 @@
         [tableView scrollRectToVisible:self.searchController.searchBar.frame animated:NO];
         return NSNotFound;
     } else {
-        NSLog(@"Click index %ld",index);
-        return [[UILocalizedIndexedCollation currentCollation] sectionForSectionIndexTitleAtIndex:index] - 1; // -1 添加了搜索标识
+        NSLog(@"Click index %ld", index);
+        return [[UILocalizedIndexedCollation currentCollation] sectionForSectionIndexTitleAtIndex:index]; // 添加了搜索标识 但第一个section又没有index所以抵消
     }
 }
 

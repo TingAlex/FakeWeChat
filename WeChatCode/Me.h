@@ -7,8 +7,8 @@
 //
 
 #import <UIKit/UIKit.h>
-
-@interface Me : UIViewController
+#import "UserselfCell.h"
+@interface Me : UIViewController<UITableViewDataSource,UITableViewDataSource>
 
 
 @end
